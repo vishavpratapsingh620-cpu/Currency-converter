@@ -7,7 +7,6 @@ const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
-
 // Fill dropdown
 dropdowns.forEach((select) => {
   for (let currCode in countryList) {
@@ -37,7 +36,7 @@ const updateFlag = (element) => {
 
   let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
 
-  let img = element.parentElement.querySelector("img");
+ let img = element.closest(".select-container").querySelector("img");
   img.src = newSrc;
 };
 
@@ -63,4 +62,5 @@ let finalAmount = amtVal * rate;
   document.querySelector(".msg").innerText =
     `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
 });
+
 
